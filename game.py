@@ -4,7 +4,7 @@ import time
 start_time = time.time()
 
 solved = False
-MAX_LIMIT = 10000
+MAX_LIMIT = 10000000
 
 number = rand.randint(0, MAX_LIMIT)
 
@@ -12,11 +12,20 @@ guess = rand.randint(0, MAX_LIMIT)
 
 guessStatus = ""
 
+min_treshold = 0
+
+max_treshold = MAX_LIMIT
+
 def guessNextNumber(guessStatus, guess):
+    global min_treshold, max_treshold
     if (guessStatus == "smaller"):
-        return rand.randint(0, guess)
+        if (guess < max_treshold):
+            max_treshold = guess
+        return rand.randint(min_treshold, guess)
     else:
-        return rand.randint(guess, MAX_LIMIT)
+        if (guess > min_treshold):
+            min_treshold = guess
+        return rand.randint(guess, max_treshold)
 
 
 while(not solved):

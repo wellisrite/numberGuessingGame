@@ -1,7 +1,10 @@
 import random as rand
+import time
+
+start_time = time.time()
 
 solved = False
-MAX_LIMIT = 10
+MAX_LIMIT = 10000
 
 number = rand.randint(0, MAX_LIMIT)
 
@@ -29,3 +32,5 @@ while(not solved):
 
 
 print("solved the number is", number)
+execTime = time.time() - start_time
+print(f"It took {execTime} to search for the number")

@@ -24,7 +24,7 @@ def guessNextNumber(guessStatus, guess):
         return rand.randint(min_treshold, guess)
     else:
         if (guess > min_treshold):
-            min_treshold = guess
+            min_treshold = guess + 1
         return rand.randint(guess, max_treshold)
 
 
